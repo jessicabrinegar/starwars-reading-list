@@ -5,13 +5,11 @@ import App from "./App.jsx"
 //create your first component
 const Home = () => {
 	return (
-		<div className="container text-center w-75">
-			<Router>
-				<React.StrictMode>
-					<App />
-				</React.StrictMode>
-			</Router>
-		</div>
+		<Router>
+			<React.StrictMode>
+				<App />
+			</React.StrictMode>
+		</Router>
 	);
 };
 export default Home;
