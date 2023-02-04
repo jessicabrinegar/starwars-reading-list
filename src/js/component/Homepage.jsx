@@ -1,7 +1,9 @@
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import CharCard from "./CharCard.jsx"
+import VehicleCard from "./VehicleCard.jsx"
+import PlanetCard from "./PlanetCard.jsx"
 
-export default function Characters () {
+export default function Homepage () {
 
     return (
         <div className="d-block text-start">
