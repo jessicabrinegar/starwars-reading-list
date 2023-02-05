@@ -1,7 +1,7 @@
 import React from "react";
+import { Outlet, Link } from "react-router-dom";
 
 export default function CharCard ({name, birth, height, mass}) {
-
     return (
         <div className="card" style={{"width": 18 + 'rem'}}>
             <img src="..." className="card-img-top" alt="..." />
@@ -12,7 +12,9 @@ export default function CharCard ({name, birth, height, mass}) {
                     <li>Height: {height}</li>
                     <li>Mass: {mass}</li>
                 </ul>
-                <a href="#" className="btn btn-primary">Go somewhere</a>
+                <Link to={`character-details/${name}`} className="btn btn-primary">Details</Link>
+                {/* not sure how to get context to work */}
+                <Outlet context={{birthyear:"birth"}} />
             </div>
         </div>
     )

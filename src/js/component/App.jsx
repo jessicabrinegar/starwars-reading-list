@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import NavBar from "./Nav.jsx"
 import Footer from "./Footer.jsx"
 import Homepage from "./Homepage.jsx"
@@ -16,9 +16,9 @@ export default function App () {
             <Routes>
                 <Route exact path="/" element={<Homepage/>}/>
                 <Route path="favorites" element={<Favorites/>}/>
-                <Route path="character-details" element={<CharDetails/>}/>
-                <Route path="vehicle-details" element={<VehicleDetails/>}/>
-                <Route path="planet-details" element={<PlanetDetails/>}/>
+                <Route path="character-details/:name/" element={<CharDetails/>}/>
+                <Route path="vehicle-details/:name/" element={<VehicleDetails/>}/>
+                <Route path="planet-details/:name/" element={<PlanetDetails/>}/>
             </Routes>
             <Footer/>
         </div>

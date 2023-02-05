@@ -1,4 +1,5 @@
 import React from "react";
+import { Outlet, Link } from "react-router-dom";
 
 export default function VehicleCard ({name, manufacturer, mglt, model}) {
 
@@ -12,7 +13,8 @@ export default function VehicleCard ({name, manufacturer, mglt, model}) {
                 <li>Manufacturer: {manufacturer}</li>
                 <li>MGLT: {mglt}</li>
             </ul>
-            <a href="#" className="btn btn-primary">Go somewhere</a>
+            <Link to="vehicle-details" className="btn btn-primary">Details</Link>
+            <Outlet></Outlet>
         </div>
     </div>
     )

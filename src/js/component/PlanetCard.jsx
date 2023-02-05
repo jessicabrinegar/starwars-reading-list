@@ -1,6 +1,8 @@
 import React from "react";
+import { Outlet, Link } from "react-router-dom";
 
 export default function PlanetCard ({name, population, rotation, climate}) {
+
 
     return (
         <div className="card" style={{"width": 18 + 'rem'}}>
@@ -12,7 +14,8 @@ export default function PlanetCard ({name, population, rotation, climate}) {
                     <li>Rotation Period: {rotation}</li>
                     <li>Climate: {climate}</li>
                 </ul>
-                <a href="#" className="btn btn-primary">Go somewhere</a>
+                <Link to={`planet-details/${name}`} className="btn btn-primary">Details</Link>
+                <Outlet></Outlet>
             </div>
         </div>
     )
