@@ -1,0 +1,7 @@
+.horizontal-scrollable > .row > .card{
+    display: inline-block;
+}
+.horizontal-scrollable > .row {
+    overflow-x: auto;
+    white-space: nowrap;
+}
