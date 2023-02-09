@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Outlet} from "react-router-dom";
 
-export default function CharCard ({name, birthyear, height, mass, gender, eye_color, hair_color, skin_color}) {
+export default function CharCard ({name, birthyear, height, mass, gender, eye_color, hair_color, skin_color, handleFavs}) {
 
     const charDetailsData = {
         birthyear: birthyear,
@@ -23,7 +23,8 @@ export default function CharCard ({name, birthyear, height, mass, gender, eye_co
                     <li className="fs-6">Height: {height}</li>
                     <li className="fs-6">Mass: {mass}</li>
                 </ul>
-                <Link to={`character-details/${name}`} state={charDetailsData} className="btn btn-primary">Details</Link>
+                <Link to={`character-details/${name}`} state={charDetailsData} className="btn btn-info">Details</Link>
+                <button className="btn btn-info ms-1" onClick={() => handleFavs(name)}>Favorite</button>
                 <Outlet />
             </div>
         </div>

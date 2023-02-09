@@ -4,7 +4,8 @@ import CharCard from "./CharCard.jsx"
 import VehicleCard from "./VehicleCard.jsx"
 import PlanetCard from "./PlanetCard.jsx"
 
-export default function Homepage ({planets, characters, vehicles}) {
+export default function Homepage ({planets, characters, vehicles, handleFavs}) {
+
 
     return (
         <div className="d-block text-start">
@@ -21,6 +22,7 @@ export default function Homepage ({planets, characters, vehicles}) {
                             hair_color={char.hair_color}
                             eye_color={char.eye_color}
                             skin_color={char.skin_color}
+                            handleFavs={handleFavs}
                             index={index}/>
                         })}
                     </div>
@@ -37,6 +39,7 @@ export default function Homepage ({planets, characters, vehicles}) {
                             cargo_capacity={vehicle.cargo_capacity}
                             crew={vehicle.crew}
                             hyperdrive_rating={vehicle.hyperdrive_rating}
+                            handleFavs={handleFavs}
                             index={index}/>
                         })}
                     </div>
@@ -55,6 +58,7 @@ export default function Homepage ({planets, characters, vehicles}) {
                             gravity={planet.gravity}
                             surface_water={planet.surface_water} 
                             terrain={planet.terrain}
+                            handleFavs={handleFavs}
                             index={index} />
                         })}
                     </div>

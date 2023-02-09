@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
 
-export default function PlanetCard ({name, population, rotation, climate, diameter, orbital_period, gravity, surface_water, terrain}) {
+export default function PlanetCard ({name, population, rotation, climate, diameter, orbital_period, gravity, surface_water, terrain, handleFavs}) {
 
     const planetDetailsData = {
         population: population,
@@ -24,7 +24,8 @@ export default function PlanetCard ({name, population, rotation, climate, diamet
                     <li className="fs-6">Rotation Period: {rotation}</li>
                     <li className="fs-6">Climate: {climate}</li>
                 </ul>
-                <Link to={`planet-details/${name}`} state={planetDetailsData} className="btn btn-primary">Details</Link>
+                <Link to={`planet-details/${name}`} state={planetDetailsData} className="btn btn-info">Details</Link>
+                <button className="btn btn-info ms-1" onClick={() => handleFavs(name)}>Favorite</button>
                 <Outlet></Outlet>
             </div>
         </div>

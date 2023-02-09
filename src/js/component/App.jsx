@@ -4,7 +4,6 @@ import axios from "axios";
 import NavBar from "./Nav.jsx"
 import Footer from "./Footer.jsx"
 import Homepage from "./Homepage.jsx"
-import Favorites from "./Favorites.jsx"
 import CharDetails from "./CharDetails.jsx";
 import VehicleDetails from "./VehicleDetails.jsx";
 import PlanetDetails from "./PlanetDetails.jsx";
@@ -17,6 +16,11 @@ export default function App () {
     const [planets, setPlanets] = useState([]);
     const [characters, setCharacters] = useState([]);
     const [vehicles, setVehicles] = useState([]);
+    const [favorites, setFavorites] = useState([]);
+
+    const handleAddFavs = (name) => {
+        setFavorites([...favorites, name])
+    }
 
     const urls = [
         "https://swapi.dev/api/planets",
@@ -27,9 +31,6 @@ export default function App () {
     const data = urls.map((url) => axios.get(url));
 
     const getData = () => {
-        // setPlanets(planetData);
-        // setCharacters(characterData);
-        // setVehicles(vehicleData);
         axios.all(data).then((resp) => {
             localStorage.setItem('planets', JSON.stringify(resp[0].data.results));
             localStorage.setItem('characters', JSON.stringify(resp[1].data.results));
@@ -49,10 +50,9 @@ export default function App () {
 
     return (
         <div className="container text-center w-100">
-            <NavBar/>
+            <NavBar favorites={favorites}/>
             <Routes>
-                <Route exact path="/" element={<Homepage planets={planets} characters={characters} vehicles={vehicles}/>}/>
-                <Route path="favorites" element={<Favorites/>}/>
+                <Route exact path="/" element={<Homepage planets={planets} characters={characters} vehicles={vehicles} handleFavs={handleAddFavs}/>}/>
                 <Route path="character-details/:name/" element={<CharDetails characters={characters}/>}/>
                 <Route path="vehicle-details/:name/" element={<VehicleDetails vehicles={vehicles}/>}/>
                 <Route path="planet-details/:name/" element={<PlanetDetails planets={planets}/>}/>

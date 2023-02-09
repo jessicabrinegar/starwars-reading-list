@@ -1,8 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import starwarsImage from "../../img/star-wars-96.png";
 
-export default function NavBar () {
+export default function NavBar ({favorites}) {
 
     return (
         <div className="d-flex justify-content-between">
@@ -12,10 +12,10 @@ export default function NavBar () {
                     Favorites
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a className="dropdown-item" href="#">Action</a></li>
-                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                    {favorites.length == 0 ? <li className="ms-2">Add a favorite</li> : favorites.map((fav) => {return <li key={fav}><a className="dropdown-item" href="#">{fav}</a></li>})}
                 </ul>
             </li>
+            <Outlet></Outlet>
         </div>
     )
 }

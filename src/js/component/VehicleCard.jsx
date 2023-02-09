@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 
-export default function VehicleCard ({name, manufacturer, mglt, model, cargo_capacity, crew, hyperdrive_rating}) {
+export default function VehicleCard ({name, manufacturer, mglt, model, cargo_capacity, crew, hyperdrive_rating, handleFavs}) {
 
     const vehicleDetailsData = {
         manufacturer: manufacturer,
@@ -22,7 +22,8 @@ export default function VehicleCard ({name, manufacturer, mglt, model, cargo_cap
                 <li className="fs-6">Manufacturer: {manufacturer}</li>
                 <li className="fs-6">MGLT: {mglt}</li>
             </ul>
-            <Link to={`vehicle-details/${name}`} state={vehicleDetailsData} className="btn btn-primary">Details</Link>
+            <Link to={`vehicle-details/${name}`} state={vehicleDetailsData} className="btn btn-info">Details</Link>
+            <button className="btn btn-info ms-1" onClick={() => handleFavs(name)}>Favorite</button>
             <Outlet></Outlet>
         </div>
     </div>
