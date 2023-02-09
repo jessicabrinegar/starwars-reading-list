@@ -1,13 +1,13 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
-export default function VehicleDetails () {
+export default function VehicleDetails ({vehicles}) {
     const {name} = useParams()
 
     return (
         <div className="container">
             <div className="row">
-                <div className="col"><img src="..."></img></div>
+                <div className="col"><img src="https://via.placeholder.com/500x300"></img></div>
                 <div className="col">
                     <h3>{name}</h3>
                     <p>vehicle info....some vehicle info.... a paragraph of vehicle info... write some info here... yada yada yada</p>

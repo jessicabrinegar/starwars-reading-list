@@ -7,7 +7,7 @@ export default function PlanetDetails () {
     return (
         <div className="container">
             <div className="row">
-                <div className="col"><img src="..."></img></div>
+                <div className="col"><img src="https://via.placeholder.com/500x300"></img></div>
                 <div className="col">
                     <h3>{name}</h3>
                     <p>Planet info....some planet info.... a paragraph of planet info... write some info here... yada yada yada</p>
