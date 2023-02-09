@@ -27,25 +27,28 @@ export default function App () {
         "https://swapi.dev/api/people",
         "https://swapi.dev/api/starships"
     ]
-    
-    const data = urls.map((url) => axios.get(url));
 
-    const getData = () => {
+    useEffect(() => {
+        const planets = JSON.parse(localStorage.getItem('planets'));
+        const characters = JSON.parse(localStorage.getItem('characters'));
+        const vehicles = JSON.parse(localStorage.getItem('vehicles'));
+        if (planets && characters && vehicles) {
+            setPlanets(planets);
+            setCharacters(characters);
+            setVehicles(vehicles);
+            return;
+        }
+        
+        const data = urls.map((url) => axios.get(url));
+
         axios.all(data).then((resp) => {
             localStorage.setItem('planets', JSON.stringify(resp[0].data.results));
             localStorage.setItem('characters', JSON.stringify(resp[1].data.results));
             localStorage.setItem('vehicles', JSON.stringify(resp[2].data.results));
-            const planetData = JSON.parse(localStorage.getItem('planets'));
-            const characterData = JSON.parse(localStorage.getItem('characters'));
-            const vehicleData = JSON.parse(localStorage.getItem('vehicles'));
-            setPlanets(planetData);
-            setCharacters(characterData);
-            setVehicles(vehicleData);
+            setPlanets(resp[0].data.results);
+            setCharacters(resp[1].data.results);
+            setVehicles(resp[2].data.results);
         }, (error) => console.log(error.message))
-    }
-
-    useEffect(() => {
-        getData();
     }, [])
 
     return (
