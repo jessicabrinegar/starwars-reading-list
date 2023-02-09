@@ -24,7 +24,7 @@ export default function CharCard ({name, birthyear, height, mass, gender, eye_co
                     <li className="fs-6">Mass: {mass}</li>
                 </ul>
                 <Link to={`character-details/${name}`} state={charDetailsData} className="btn btn-info">Details</Link>
-                <button className="btn btn-info ms-1" onClick={() => handleFavs(name)}>Favorite</button>
+                <button className="btn btn-info ms-1" onClick={() => handleFavs(name)}><i class="bi bi-heart"></i></button>
                 <Outlet />
             </div>
         </div>

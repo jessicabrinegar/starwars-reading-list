@@ -23,7 +23,7 @@ export default function VehicleCard ({name, manufacturer, mglt, model, cargo_cap
                 <li className="fs-6">MGLT: {mglt}</li>
             </ul>
             <Link to={`vehicle-details/${name}`} state={vehicleDetailsData} className="btn btn-info">Details</Link>
-            <button className="btn btn-info ms-1" onClick={() => handleFavs(name)}>Favorite</button>
+            <button className="btn btn-info ms-1" onClick={() => handleFavs(name)}><i class="bi bi-heart"></i></button>
             <Outlet></Outlet>
         </div>
     </div>

@@ -52,7 +52,7 @@ export default function App () {
     }, [])
 
     return (
-        <div className="container text-center w-100">
+        <div className="container text-center w-100 app-wrapper">
             <NavBar favorites={favorites}/>
             <Routes>
                 <Route exact path="/" element={<Homepage planets={planets} characters={characters} vehicles={vehicles} handleFavs={handleAddFavs}/>}/>
