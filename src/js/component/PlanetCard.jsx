@@ -1,8 +1,18 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
 
-export default function PlanetCard ({name, population, rotation, climate}) {
+export default function PlanetCard ({name, population, rotation, climate, diameter, orbital_period, gravity, surface_water, terrain}) {
 
+    const planetDetailsData = {
+        population: population,
+        rotation: rotation,
+        climate: climate,
+        diameter: diameter,
+        orbital_period: orbital_period,
+        gravity: gravity,
+        surface_water: surface_water,
+        terrain: terrain,
+    }
 
     return (
         <div className="card m-3 p-0" style={{"width": 18 + 'rem'}}>
@@ -14,7 +24,7 @@ export default function PlanetCard ({name, population, rotation, climate}) {
                     <li className="fs-6">Rotation Period: {rotation}</li>
                     <li className="fs-6">Climate: {climate}</li>
                 </ul>
-                <Link to={`planet-details/${name}`} className="btn btn-primary">Details</Link>
+                <Link to={`planet-details/${name}`} state={planetDetailsData} className="btn btn-primary">Details</Link>
                 <Outlet></Outlet>
             </div>
         </div>

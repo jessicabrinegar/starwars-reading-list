@@ -14,11 +14,13 @@ export default function Homepage ({planets, characters, vehicles}) {
                         {characters.map((char, index)=> {
                             return <CharCard key={char.name} 
                             name={char.name} 
-                            birth={char.birth_year} 
+                            birthyear={char.birth_year}
+                            gender={char.gender} 
                             height={char.height} 
                             mass={char.mass}
-                            hair={char.hair_color}
-                            eye={char.eye_color}
+                            hair_color={char.hair_color}
+                            eye_color={char.eye_color}
+                            skin_color={char.skin_color}
                             index={index}/>
                         })}
                     </div>
@@ -32,6 +34,9 @@ export default function Homepage ({planets, characters, vehicles}) {
                             manufacturer={vehicle.manufacturer} 
                             mglt={vehicle.MGLT} 
                             model={vehicle.model}
+                            cargo_capacity={vehicle.cargo_capacity}
+                            crew={vehicle.crew}
+                            hyperdrive_rating={vehicle.hyperdrive_rating}
                             index={index}/>
                         })}
                     </div>
@@ -44,7 +49,12 @@ export default function Homepage ({planets, characters, vehicles}) {
                             name={planet.name} 
                             population={planet.population} 
                             rotation={planet.rotation_period}
-                            climate={planet.climate} 
+                            climate={planet.climate}
+                            diameter={planet.diameter}
+                            orbital_period={planet.orbital_period}
+                            gravity={planet.gravity}
+                            surface_water={planet.surface_water} 
+                            terrain={planet.terrain}
                             index={index} />
                         })}
                     </div>
